@@ -15,7 +15,7 @@ function Comments({ showComments, setShowComments, post }) {
     try {
       const token = localStorage.getItem('token');
       const userId = localStorage.getItem('userId');
-      const response = await axios.get(`http://localhost:5000/api/comments/${post._id}`, {
+      const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/comments/${post._id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ function Comments({ showComments, setShowComments, post }) {
     try {
       const token = localStorage.getItem('token');
       const userId = localStorage.getItem('userId');
-      const response = await axios.post(`http://localhost:5000/api/comments/${post._id}`, { text: commentText }, {
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/comments/${post._id}`, { text: commentText }, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
